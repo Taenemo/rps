@@ -13,15 +13,14 @@ let moves = 0;
 
 const handleClick = (e) => {
   userCHoice = e.target.id;
-  document.getElementById(
-    "user_choice"
-  ).innerText = `You Choose ${userCHoice.toUpperCase()}`;
+  winner();
+  document.getElementById("user_choice").innerText = `You Choose ${userCHoice.toUpperCase()}`;
   document.getElementById("user_score").innerText = `${userScore}`;
   document.getElementById("draws").innerText = `${drawScore}`;
   ++moves;
   movesLeft.innerText = `${10 - moves}`;
   computerC();
-  winner();
+  
   if (moves == 10) {
     gameOver(buttons, movesLeft);
   }
@@ -51,12 +50,11 @@ const winner = () => {
       resultRef.style.cssText = "background-color: #ffdde0; color: #d32f2f";
       resultRef.textContent = `YOU LOSE`;
       break;
-    case "rockrock":
-    case "paperpaper":
-    case "scissorsscissors":
+    default:
       ++drawScore;
       resultRef.style.cssText = "background-color: #e5e5e5; color: #808080";
       resultRef.textContent = `DRAW`;
+      break;
   }
 };
 
@@ -72,9 +70,9 @@ const gameOver = (buttons, movesLeft) => {
   } else if (userScore < computerScore) {
     resultRef.style.cssText = "background-color: #ffdde0; color: #d32f2f";
     resultRef.innerText = "YOU LOSE THE GAME";
-  } else if (userScore === computerScore) {
-    resultRef.style.cssText = "background-color: #ffdde0; color: #d32f2f";
-    resultRef.innerText = "YOU LOSE THE GAME";
+  } else if (userScore === computerScore){
+    resultRef.style.cssText = "background-color: #e5e5e5; color: #808080";
+    resultRef.innerText = "DRAW GAME";
   }
   restartBtn.innerText = "RESTART GAME?";
   restartBtn.style.display = "flex";
@@ -85,6 +83,6 @@ const gameOver = (buttons, movesLeft) => {
 };
 
 function game() {
-  buttons.forEach((buttons) => buttons.addEventListener("click", handleClick));
+  buttons.forEach(buttons => buttons.addEventListener("click", handleClick));
 }
-game();
+game()
