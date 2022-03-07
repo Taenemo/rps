@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll("button");
 const choices = ["rock", "paper", "scissors"];
 const resultRef = document.getElementById("result");
+const displayGO = document.querySelectorAll('.displayGameOver')
 
 let movesLeft = document.getElementById("movesLeft");
 let userCHoice;
@@ -22,7 +23,7 @@ const handleClick = (e) => {
   computerC();
   
   if (moves == 10) {
-    gameOver(buttons, movesLeft);
+    gameOver(buttons, movesLeft,displayGO);
   }
 };
 
@@ -39,29 +40,44 @@ const winner = () => {
     case "rockscissors":
     case "paperrock":
     case "scissorspaper":
-      ++userScore;
+      userScore++;
       resultRef.style.cssText = "background-color: #cefdce; color: #689f38";
       resultRef.textContent = `YOU WIN`;
       break;
     case "rockspaper":
     case "paperscissors":
     case "scissorsrock":
-      ++computerScore;
+      computerScore++;
       resultRef.style.cssText = "background-color: #ffdde0; color: #d32f2f";
       resultRef.textContent = `YOU LOSE`;
       break;
     default:
-      ++drawScore;
+      drawScore++;
       resultRef.style.cssText = "background-color: #e5e5e5; color: #808080";
       resultRef.textContent = `DRAW`;
       break;
   }
 };
 
-const gameOver = (buttons, movesLeft) => {
+const gameOver = (buttons, movesLeft,displayGO) => {
   buttons.forEach((buttons) => {
     buttons.style.display = "none";
   });
+
+  displayGO.forEach(displayGO => displayGO.style.display ="none")
+  const gameOverId = document.getElementById('gameOver')
+  
+  if(userScore > computerScore){
+    gameOverId.textContent = "GAME OVER"
+    gameOverId.style.cssText = "background-color: #cefdce; color: #689f38";
+  }else if(userScore < computerScore){
+    gameOverId.textContent = "GAME OVER"
+    gameOverId.style.cssText = "background-color: #ffdde0; color: #d32f2f";
+  }else{
+    gameOverId.textContent = "GAME OVER"
+    gameOverId.style.cssText = "background-color: #e5e5e5; color: #808080";
+  }
+  
 
   const restartBtn = document.getElementById("restart");
   if (userScore > computerScore) {

@@ -85,3 +85,11 @@ h1{
     text-align: center;
     margin-top: 150px;
 }
+
+#gameOver{
+    font-size: 2rem;
+    color: black;
+    font-weight: bolder;
+    width: 45%;
+    margin: 0 auto;
+}

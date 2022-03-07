@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPS GAME</title>
-    <!--Fontawesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    />
-    <!--Google Font-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <!--Stylesheet-->
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
 
-  <body>
-    <h1>ROCK PAPER SCISSORS</h1>
-    <div class="container">
-      
-      <div class="scores">
-        <p>
-          You :
-          <span id="user_score">0</span>
-        </p>
-        <p>
-          Computer :
-          <span id="computer_score">0</span>
-        </p>
-        <p>
-          Draw :
-          <span id="draws">0</span>
-        </p>
-        <p>
-          Moves Left :
-          <span id="movesLeft">10</span>
-        </p>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPS GAME</title>
+  <!--Fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <!--Google Font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!--Stylesheet-->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
 
-      <div class="weapons">
-        <button id="rock"><i class="far fa-hand-rock" id="rock"></i></button>
-        <button id="paper"><i class="far fa-hand-paper" id="paper"></i></button>
-        <button id="scissors"><i class="far fa-hand-scissors" id="scissors"></i></button>
-      </div>
+<body>
+  <h1>ROCK PAPER SCISSORS</h1>
+  <div class="container">
 
-      <div class="details">
-        <p id="user_choice"></p>
-        <p id="comp_choice"></p>
-        <p id="result"></p>
-        <p id="restart"></p>
-      </div>
+    <div class="scores">
+      <p>
+        You :
+        <span id="user_score">0</span>
+      </p>
+      <p>
+        Computer :
+        <span id="computer_score">0</span>
+      </p>
+      <p>
+        Draws :
+        <span id="draws">0</span>
+      </p>
+      <p>
+        Moves Left :
+        <span id="movesLeft">10</span>
+      </p>
     </div>
-  </body>
+
+    <div class="weapons">
+      <button id="rock"><i class="far fa-hand-rock" id="rock"></i></button>
+      <button id="paper"><i class="far fa-hand-paper" id="paper"></i></button>
+      <button id="scissors"><i class="far fa-hand-scissors" id="scissors"></i></button>
+    </div>
+
+    <div class="details">
+      <div id="gameOver"></div>
+      <p id="user_choice" class="displayGameOver"></p>
+      <p id="comp_choice" class="displayGameOver"></p>
+      <p id="result"></p>
+      <p id="restart"></p>
+    </div>
+  </div>
+</body>
+
 </html>
